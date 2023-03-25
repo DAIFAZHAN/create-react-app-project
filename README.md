@@ -85,6 +85,8 @@ npm install prettier -D
 /public/*
 ```
 
+vscode 的 Editor: Default Formatter 配置为 prettier
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
