@@ -24,6 +24,67 @@ b. 配置 tsconfig.json
 
 c. 修改 package.json 的 sctipts
 
+## .editorconfig、prettier、eslint 配置
+
+### .editorconfig
+
+```
+# http://editorconfig.org
+
+root = true
+
+[*] # 表示所有文件适用
+charset = utf-8 # 设置文件字符集为 utf-8
+indent_style = space # 缩进风格（tab | space）
+indent_size = 2 # 缩进大小
+end_of_line = lf # 控制换行类型(lf | cr | crlf)
+trim_trailing_whitespace = true # 去除行尾的任意空白字符
+insert_final_newline = true # 始终在文件末尾插入一个新行
+
+[*.md] # 表示仅 md 文件适用以下规则
+max_line_length = off
+trim_trailing_whitespace = false
+```
+
+### prettier
+
+```
+npm install prettier -D
+```
+
+配置.prettierrc
+
+```
+{
+  "useTabs": false,
+  "tabWidth": 2,
+  "printWidth": 80,
+  "singleQuote": true,
+  "trailingComma": "none",
+  "semi": false
+}
+```
+
+配置 package.json 的 scripts ，对所有文件格式化 （可以查看 node_modules 的.bin/prettier）
+
+```
+"prettier": "prettier --write ."
+```
+
+创建.prettierignore
+
+```
+/build/*
+.local
+.output.js
+/node_modules/**
+
+**/*.svg
+**/*.sh
+
+/public/*
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -70,3 +131,11 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+```
+
+```
+
+```
+
+```
