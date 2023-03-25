@@ -1,3 +1,11 @@
+# 项目
+
+## 初始化项目
+
+create-react-app react18_ts_music --template typescript
+
+public 文件夹打包时直接被复制到 dist
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
