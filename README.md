@@ -87,6 +87,32 @@ npm install prettier -D
 
 vscode 的 Editor: Default Formatter 配置为 prettier
 
+### eslint
+
+```
+npm install eslint -D
+npx eslint --init
+选择syntax and problems
+选择modules
+选择react
+同时选Browser和Node
+选js文件
+```
+
+vscode 配置可以加： "eslint.alwaysShowStatus": true
+
+### 让 eslint 和 prettier 风格一致
+
+```
+npm install eslint-plugin-prettier eslint-config-prettier -D
+```
+
+.eslintrc.js 的 extends 中添加：
+
+```
+'plugin:prettier/recommended'
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
