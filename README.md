@@ -136,6 +136,38 @@ module.exports = {
 
 ```
 
+## 路由集成-路由的基本配置
+
+### react-router-dom
+
+-dom 是因为针对浏览器开发
+npm install react-router-dom
+
+```
+const routes: RouteObject[] = [
+  {
+    path: '/',
+    element: <Discover />
+  }
+]
+
+export default routes
+
+// app.tsx
+<div className="App">{useRoutes(routes)}</div>
+
+// index.tsx
+root.render(
+  <HashRouter>
+    <App />
+  </HashRouter>
+)
+```
+
+### import React
+
+import React 是为了 React.createElement
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
