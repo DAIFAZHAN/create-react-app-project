@@ -113,6 +113,29 @@ npm install eslint-plugin-prettier eslint-config-prettier -D
 'plugin:prettier/recommended'
 ```
 
+## 项目的 CSS 重置和 Less 支持
+
+### normalize.css
+
+npm install normalize.css
+index.tsx 中 import "normalize.css"
+
+### craco-less
+
+可以看 antd 官网
+为了适配，安装特定版本：
+npm install craco-less@2.1.0-alpha.0
+
+craco.config.js 文件中添加：
+
+```
+const CracoLessPlugin = require('craco-less')
+module.exports = {
+  plugins: [{ plugin: CracoLessPlugin }],
+}
+
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
