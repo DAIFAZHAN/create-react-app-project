@@ -6,6 +6,24 @@ create-react-app react18_ts_music --template typescript
 
 public 文件夹打包时直接被复制到 dist
 
+## 配置项目
+
+craco：create-react-app config 会自动合并（不推荐 eject）
+
+npm install @craco/craco
+npm install @craco/craco@alpha -D (适配 5.0.1 以上的 react-scripts)
+a. 创建 craco.config.js
+b. 配置 tsconfig.json
+
+```
+"baseUrl": ".",
+"paths": {
+  "@/*": ["src/*"]
+}
+```
+
+c. 修改 package.json 的 sctipts
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
