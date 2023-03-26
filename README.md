@@ -194,6 +194,28 @@ export default memo(ComponentName)
   navigate('/discover')
 ```
 
+### 分包处理：路由懒加载
+
+```
+// router/index.tsx
+
+const Mine = lazy(() => import('@/views/mine'))
+
+{
+  path: '/mine',
+  element: <Mine />
+}
+
+// App.tsx
+
+<Link to="/mine">我的</Link>
+
+<Suspense fallback="loading...">
+  <div className="main">{useRoutes(routes)}</div>
+</Suspense>
+
+```
+
 ## 生成代码片段
 
 ### snippet generator
