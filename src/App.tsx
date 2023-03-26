@@ -1,12 +1,12 @@
 import React, { Suspense } from 'react'
 import { Link, useRoutes } from 'react-router-dom'
-import { shallowEqual, useSelector } from 'react-redux'
+import { shallowEqual } from 'react-redux'
 import routes from './router'
-import { IRootState } from './store'
+import { useAppSelector } from './store'
 
 function App() {
-  const { count, message } = useSelector(
-    (state: IRootState) => ({
+  const { count, message } = useAppSelector(
+    (state) => ({
       count: state.counter.count,
       message: state.counter.message
     }),

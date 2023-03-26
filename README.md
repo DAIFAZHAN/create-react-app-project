@@ -338,6 +338,35 @@ root.render(
 )
 ```
 
+### 重构: 封装 useSelector 为 useAppSelector
+
+```
+// store
+export const useAppSelector: TypedUseSelectorHook<IRootState> = useSelector
+
+// App
+import { useAppSelector } from './store'
+
+const { count, message } = useAppSelector(
+    (state) => ({
+      count: state.counter.count,
+      message: state.counter.message
+    }),
+    shallowEqual // 浅层比较，不改变就不自动刷新
+  )
+```
+
+## 函数调用签名
+
+```
+interface IFnCall {
+  (num: number): string
+}
+
+const foo: IFnCall = (num1) => num1.toString()
+foo(123)
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
