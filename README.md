@@ -194,6 +194,41 @@ export default memo(ComponentName)
   navigate('/discover')
 ```
 
+### 二级路由
+
+Outlet 占位
+二级路由也懒加载的话也要用 Suspense，防止使用最上层的，导致一整片闪动。
+
+```
+{
+  path: '/discover',
+  element: <Discover />,
+  children: [
+    {
+      path: '/discover',
+      element: <Navigate to="/discover/recommend" />
+    },
+    {
+      path: '/discover/recommend',
+      element: <Recommend />
+    },
+    {
+      path: '/discover/Ranking',
+      element: <Ranking />
+    }
+  ]
+},
+
+// Discover
+<div>
+  <Link to="/discover/recommend">推荐</Link>
+  <Link to="/discover/ranking">排行</Link>
+  <Suspense fallback="loading...">
+    <Outlet />
+  </Suspense>
+</div>
+```
+
 ### 分包处理：路由懒加载
 
 ```
