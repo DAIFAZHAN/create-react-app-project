@@ -168,6 +168,47 @@ root.render(
 
 import React 是为了 React.createElement
 
+## React
+
+### React.FC<IProps>
+
+FunctionComponent
+
+### children: ReactNode
+
+import type { ReactNode } from 'react'
+
+### memo
+
+export default memo(ComponentName)
+
+## 生成代码片段
+
+### snippet generator
+
+vscode-首选项-配置代码片段-typescriptreact
+
+```
+"react typescript": {
+  "prefix": "tsreact",
+  "body": [
+    "import React, { memo } from 'react'",
+    "import type { FC, ReactNode } from 'react'",
+    "",
+    "interface IProps {",
+    "  children?: ReactNode",
+    "}",
+    "",
+    "const ${1:Home}: FC<IProps> = () => {",
+    "  return <div>${1:Home}</div>",
+    "}",
+    "",
+    "export default memo(${1:Home})"
+  ],
+  "description": "react typescript"
+}
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
