@@ -278,6 +278,66 @@ vscode-首选项-配置代码片段-typescriptreact
 }
 ```
 
+## Redux
+
+### @reduxjs/toolkit react-redux
+
+npm install @reduxjs/toolkit react-redux
+
+```
+// counter.ts
+import { createSlice } from '@reduxjs/toolkit'
+
+const counterSlice = createSlice({
+  name: 'counter',
+  initialState: {
+    count: 100,
+    message: 'Hello Redux'
+  },
+  reducers: {}
+})
+
+export default counterSlice.reducer
+
+// store
+import { configureStore } from '@reduxjs/toolkit'
+import counterReducer from './modules/counter'
+
+const store = configureStore({
+  reducer: {
+    counter: counterReducer
+  }
+})
+
+type GetStateFnType = typeof store.getState // 先拿到函数类型
+export type IRootState = ReturnType<GetStateFnType> // 再拿到返回值类型
+
+export default store
+
+// App
+import { IRootState } from './store'
+
+function App() {
+  const { count, message } = useSelector(
+    (state: IRootState) => ({
+      count: state.counter.count,
+      message: state.counter.message
+    }),
+    shallowEqual // 浅层比较，不改变就不自动刷新
+  )
+  ...
+}
+
+// index
+root.render(
+  <Provider store={store}>
+    <HashRouter>
+      <App />
+    </HashRouter>
+  </Provider>
+)
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
