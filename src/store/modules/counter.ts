@@ -6,7 +6,12 @@ const counterSlice = createSlice({
     count: 100,
     message: 'Hello Redux'
   },
-  reducers: {}
+  reducers: {
+    changeCountAction: (state, { payload }) => {
+      state.count = payload
+    }
+  }
 })
 
+export const { changeCountAction } = counterSlice.actions
 export default counterSlice.reducer

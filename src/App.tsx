@@ -2,7 +2,8 @@ import React, { Suspense } from 'react'
 import { Link, useRoutes } from 'react-router-dom'
 import { shallowEqual } from 'react-redux'
 import routes from './router'
-import { useAppSelector } from './store'
+import { useAppDispatch, useAppSelector } from './store'
+import { changeCountAction } from './store/modules/counter'
 
 function App() {
   const { count, message } = useAppSelector(
@@ -12,6 +13,9 @@ function App() {
     }),
     shallowEqual // 浅层比较，不改变就不自动刷新
   )
+
+  const dispatch = useAppDispatch()
+  const handleClick = () => dispatch(changeCountAction(count + 1))
 
   return (
     <div className="App">
@@ -24,6 +28,7 @@ function App() {
       </Suspense>
       <h2>当前计数：{count}</h2>
       <h2>当前消息：{message}</h2>
+      <button onClick={handleClick}>点击修改计数</button>
     </div>
   )
 }
