@@ -1,10 +1,14 @@
 import React from 'react'
-import { RouteObject } from 'react-router-dom'
+import { Navigate, RouteObject } from 'react-router-dom'
 import Discover from '@/views/discover'
 
 const routes: RouteObject[] = [
   {
     path: '/',
+    element: <Navigate to="/discover" />
+  },
+  {
+    path: '/discover',
     element: <Discover />
   }
 ]

@@ -182,6 +182,18 @@ import type { ReactNode } from 'react'
 
 export default memo(ComponentName)
 
+### Navigate, useNavigate
+
+```
+  {
+    path: '/',
+    element: <Navigate to="/discover" />
+  },
+  // useNavigate
+  const navigate = useNavigate()
+  navigate('/discover')
+```
+
 ## 生成代码片段
 
 ### snippet generator
