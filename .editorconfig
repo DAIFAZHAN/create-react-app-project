@@ -1,5 +1,5 @@
 # http://editorconfig.org
-
+# 需使用插件：EditorConfig for VS Code
 root = true
 
 [*] # 表示所有文件适用
